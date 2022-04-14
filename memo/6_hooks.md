@@ -37,7 +37,7 @@
 useState보다 다양한 컴포넌트 상황에 따라 다양한 상태를 다른 값으로 업데이트 하고 싶을 때 사용
 
 reducer란 현재 상태와 action 객체를 파라미터로 받아와서 새로운 상태를 반환해주는 함수
-action은 업데이트를 위한 정보가 있으며 주로 type을 지닌 객체형태로 사용 type은 대문자와 \_ 로 구성함
+action은 업데이트를 위한 정보가 있으며 주로 type을 지닌 객체형태로 사용 type은 대문자와 \ "_" 로 구성함
 
 useReducer: \
  `const [state, dispatch] = useReducer(reducer, 초기화);`
@@ -76,48 +76,9 @@ const onChange = useCallback((e) => {
 
 ### useRef
 
-컴포넌트에서 ref를 쉽게 사용할 수 있도록 해줌.
+두 가지 용도가 있음
+- 함수형 컴포넌트에서 특정 DOM을 선택해야 할 때 사용
+- 컴포넌트 안에서 조회 및 수정할 수 있는 변수를 관리
+useRef로 관리하는 변수는 값이 바뀐다고 컴포넌트가 리렌더링되지 않음.
 
 > ref: js의 getElementById()임. 모든 컴포넌트는 reference element를 갖고 있어, 컴포넌트에 ref를 넣어주면 해당 컴포넌트를 참조하게 됨.
-
-```javascript
-const App = () => {
-  const [name, setName] = useState("");
-  const [nickname, setNickname] = useState("");
-
-  const onChangename = (e) => {
-    setName(e.target.value);
-  };
-  const onChangenickname = (e) => {
-    setNickname(e.target.value);
-  };
-  // useRef 객체 생성
-  const ref = useRef();
-
-  const onClickReset = () => {
-    setName("");
-    setNickname("");
-    // 버튼 클릭시 지정한 위치에 focus 되도록
-    ref.current.focus();
-  };
-
-  return (
-    <div>
-      {/* 원하는 위치에 ref 값 설정한다 */}
-      <input value={name} onChange={onChangename} ref={ref} />
-
-      <input value={nickname} onChange={onChangenickname} />
-      <button onClick={onClickReset}>RESET</button>
-      <div>
-        <h3>결과</h3>
-        <h4>
-          {name} 의 별명은 {nickname} 입니다.
-        </h4>
-      </div>
-    </div>
-  );
-};
-
-};
-```
-Reset 버튼을 누르면 name, nickname input으로 focus되도록 하는 예제
