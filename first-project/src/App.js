@@ -1,22 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import Counter from "./Counter";
 import Info from "./Info";
+import Average from "./Average";
 
 const App = () => {
-  const [visible, setVisible] = useState(false);
   return (
     <div>
       <Counter></Counter>
       <hr />
-
-      <button
-        onClick={() => {
-          setVisible(!visible);
-        }}
-      >
-        {visible ? "hide" : "display"}
-      </button>
-      {visible && <Info />}
+      <Info />
+      <hr />
+      <Average></Average>
     </div>
   );
 };
