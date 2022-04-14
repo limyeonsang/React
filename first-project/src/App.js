@@ -1,14 +1,23 @@
-import React from "react";
-import MyComponent from "./MyComponent";
-import IterationSample from "./IterationSample";
+import React, { useState } from "react";
+import Counter from "./Counter";
+import Info from "./Info";
 
 const App = () => {
-  // return <MyComponent name="안녕" />;
+  const [visible, setVisible] = useState(false);
   return (
-    <>
-      <MyComponent>안녕 나는 차일드야~</MyComponent>
-      <IterationSample />
-    </>
+    <div>
+      <Counter></Counter>
+      <hr />
+
+      <button
+        onClick={() => {
+          setVisible(!visible);
+        }}
+      >
+        {visible ? "hide" : "display"}
+      </button>
+      {visible && <Info />}
+    </div>
   );
 };
 
