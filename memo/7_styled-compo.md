@@ -55,3 +55,25 @@ const App = () => {
 ## 반응형
 
 가로 크기에 따라 다른 스타일을 적용
+
+- 1024이상이면 width 1024적용, 색은 blue
+- 1024이하이면 width 768적용, 색은 black
+- 768이하이면 width 100%, 색은 red
+
+```javascript
+const Box = styled.div`
+  background-color: blue;
+  padding: 1rem;
+  display: flex;
+  width: 1024px;
+  margin: 0 auto;
+  @media (max-width: 1024px) {
+    width: 768px;
+    background-color: black;
+  }
+  @media (max-width: 768px) {
+    width: 100%;
+    background-color: red;
+  }
+`;
+```
