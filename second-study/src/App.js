@@ -1,11 +1,18 @@
 import React from "react";
-import Box from "./StyledComponents";
+import Immutability from "./immutability";
+import WithImmer from "./WithImmer";
 
-function App() {
+const App = () => {
   return (
-    <>
-      <Box ></Box>
-    </>
+    <div>
+      <div>
+        <Immutability></Immutability>
+      </div>
+      <div>
+        <WithImmer></WithImmer>
+      </div>
+    </div>
   );
-}
+};
+
 export default App;
