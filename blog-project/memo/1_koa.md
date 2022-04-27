@@ -46,3 +46,15 @@ package.json에서~
 요것 들들들 추가들들하면
 `yarn start`로 재시작 없이 실행\
 `yarn start:dev`로 자동 재시작~
+
+## Koa router의 파라미터와 쿼리
+
+### 파라미터 설정 방법
+
+`/about/:name` 과 같이 콜론으로 라우트 경로를 설정 \
+파라미터가 있을수도있고~~ 없을수도있다면 `/about/:name?` \
+ctx.params 객체에서 조회.
+
+### 쿼리
+
+`/posts/?id=10`과 같이 요청 -> ctx.query에서 조회
