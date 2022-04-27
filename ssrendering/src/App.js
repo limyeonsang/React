@@ -1,16 +1,16 @@
-import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import { Route, Routes, BrowserRouter } from "react-router-dom";
+import RedPage from "./pages/RedPage";
+import BluePage from "./pages/BluePage";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>헤웅헤웅</p>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/red" element={<RedPage />} />
+        <Route path="/blue" element={<BluePage />} />
+      </Routes>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
