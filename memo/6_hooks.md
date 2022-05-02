@@ -113,6 +113,45 @@ MyComponent = () => {
 };
 ```
 
+예시임)
+
+```javascript
+const plusFunc = (a, b) => {
+  console.log("plusFunc run");
+  return a + b;
+};
+
+const Component = () => {
+  const [state, setState] = useState("");
+  const [a, setA] = useState(0);
+
+  const plus = plusFunc(a, 3);
+
+  return <input> state를 변경하는 이벤트를 발생시키는 onChange가 있음.></input>;
+};
+```
+
+위의 경우 input의 text를 변경하면 state가 변경되어 리렌더링된다. \
+그럼 리렌더링 될때마다 plusFunc가 계~속 호출되게 된다. (plusFunc는 a state가 바뀔 떄만 호출되는게 자원 낭비가 x)
+
+useMemo를 사용함.
+
+```javascript
+const plusFunc = (a, b) => {
+  console.log("plusFunc run");
+  return a + b;
+};
+
+const Component = () => {
+  const [state, setState] = useState("");
+  const [a, setA] = useState(0);
+
+  const plus = useMemo(() => plusFunc(a, 3), [a]);
+
+  return <input> state를 변경하는 이벤트를 발생시키는 onChange가 있음.></input>;
+};
+```
+
 ### useCallback
 
 useMemo와 비슷, 렌더링 성능 최적화에 사용하며, 이벤트 핸들러 함수를 필요할 때만 생성할 수 있다.
