@@ -1,4 +1,13 @@
+import { useEffect } from "react";
+
 const User = ({ user, onRemove, onToggle }) => {
+  useEffect(() => {
+    console.log("렌더링");
+    return () => {
+      console.log("컴포넌트 사라짐.");
+    };
+  }, []);
+
   return (
     <div>
       <b
@@ -8,7 +17,7 @@ const User = ({ user, onRemove, onToggle }) => {
         }}
         onClick={() => onToggle(user.id)}
       >
-        {user.username}
+        ㄴ{user.username}
       </b>
       <span>[{user.email}]</span>
       <button onClick={() => onRemove(user.id)}>삭제</button>
