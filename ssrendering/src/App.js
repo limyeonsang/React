@@ -1,9 +1,9 @@
-import UserList from "./components/UseEffectCom";
+import InputSample from "./components/UuseRef";
 
 const App = () => {
   return (
     <>
-      <UserList></UserList>
+      <InputSample></InputSample>
     </>
   );
 };
