@@ -83,17 +83,19 @@ const App = () => {
 
   return (
     <>
-      <CreateUser
-        username={username}
-        email={email}
-        onChange={onChange}
-        onCreate={onCreate}
-      ></CreateUser>
-      <UserList
-        users={users}
-        onRemove={onRemove}
-        onToggle={onToggle}
-      ></UserList>
+      <>
+        <CreateUser
+          username={username}
+          email={email}
+          onChange={onChange}
+          onCreate={onCreate}
+        ></CreateUser>
+        <UserList
+          users={users}
+          onRemove={onRemove}
+          onToggle={onToggle}
+        ></UserList>
+      </>
       <div>Active Users: {count}</div>
     </>
   );
