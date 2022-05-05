@@ -79,3 +79,45 @@ const a = (pt: Point) => {
 
 a({x: 100, y: 100})
 ```
+
+### 인터페이스
+
+```typescript
+interface Point {
+  x: number;
+  y: number;
+}
+
+const a = (pt: Point) => {
+  ~
+}
+
+a({x: 100, y: 100})
+```
+
+#### 타입 alias랑 interface의 차이
+
+둘이 매우 유사, 둘 중 하나 쓰면됨. \
+핵심적인 차이는 interface는 확장이 가능하다는 점.
+
+```typescript
+// 인터페이스 확장
+interface Animal {
+  name: string;
+}
+
+interface Bear extends Animal {
+  food: boolean;
+}
+
+// 기존의 인터페이스에 새 필드 추가
+interface Window {
+  title: string;
+}
+
+interface Window {
+  ts: TypeScriptAPI;
+}
+```
+
+ref: https://www.typescriptlang.org/ko/docs/handbook/2/everyday-types.html
