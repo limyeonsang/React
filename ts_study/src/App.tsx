@@ -3,6 +3,10 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {  
+  enum A {a,b,c,d}
+  let j:A = A.d;
+  console.log(j)
+
   return (
     <div className="App">
       <header className="App-header">
