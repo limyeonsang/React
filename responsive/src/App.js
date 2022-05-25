@@ -1,23 +1,19 @@
+import {useEffect} from "react";
 import MediaQuery from "react-responsive";
+import {useMediaQuery} from "react-responsive";
 
 function App() {
-    return (
-        <div>
-            <h1>Device Test!</h1>
-            <MediaQuery minWidth={1224}>
-                <p>You are a desktop or laptop</p>
-                <MediaQuery minWidth={1824}>
-                    <p>You also have a huge screen</p>
-                </MediaQuery>
-            </MediaQuery>
-            <MediaQuery minResolution="2dppx">
-                {/* You can also use a function (render prop) as a child */}
-                {(matches) =>
-                    matches ? <p>You are retina</p> : <p>You are not retina</p>
-                }
-            </MediaQuery>
-        </div>
-    );
+    const isDesktopOrLaptop = useMediaQuery({minWidth: 1224});
+    const isBigScreen = useMediaQuery({minWidth: 1824});
+    const isTabletOrMobile = useMediaQuery({maxWidth: 1224});
+
+    useEffect(() => {
+        console.log("1", isDesktopOrLaptop);
+        console.log("2", isBigScreen);
+        console.log("3", isTabletOrMobile);
+    }, [isBigScreen, isDesktopOrLaptop, isTabletOrMobile]);
+
+    return <div></div>;
 }
 
 export default App;
