@@ -1,6 +1,6 @@
 import { ApolloProvider } from "react-apollo"; 
-import { client } from "./Apollo";
-import Continent from "./Continent";
+import { client } from "./apollo_react/Apollo";
+import Continent from "./apollo_react/Continent";
 
 function App() {
   return (
